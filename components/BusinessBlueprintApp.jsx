@@ -213,7 +213,69 @@ Make this highly specific and actionable for their business situation.`;
       generateBlueprint();
     }
   };
-
+const generateBlueprint = async () => {
+  setIsGenerating(true);
+  
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
+  // Sample blueprint for demo
+  const sampleBlueprint = {
+    executiveSummary: `Strategic 90-day execution plan for ${formData.businessName} in the ${formData.industry} industry. Focus on ${formData.mainChallenges.slice(0,2).join(' and ')} while building toward ${formData.targetRevenue} quarterly revenue.`,
+    milestoneRoadmap: [
+      {
+        period: "Days 1-30",
+        focus: "Foundation & Quick Wins",
+        objectives: ["Establish core systems", "Define key processes", "Set up tracking metrics"],
+        keyMetrics: ["System setup completion", "Process documentation", "Baseline metrics established"]
+      },
+      {
+        period: "Days 31-60",
+        focus: "Growth & Optimization", 
+        objectives: ["Scale successful initiatives", "Optimize operations", "Expand market reach"],
+        keyMetrics: ["Revenue growth rate", "Operational efficiency", "Customer acquisition"]
+      },
+      {
+        period: "Days 61-90",
+        focus: "Scale & Systematize",
+        objectives: ["Systematize processes", "Scale team if needed", "Plan next quarter"],
+        keyMetrics: ["Process automation", "Team productivity", "Quarterly goals achieved"]
+      }
+    ],
+    keyDecisions: [
+      {
+        decision: "Technology stack optimization",
+        timeline: "Week 2-3",
+        impact: "Critical for scalability and efficiency",
+        options: ["Upgrade current systems", "Implement new solution"]
+      }
+    ],
+    leadershipFocus: [
+      {
+        area: "Team Development",
+        description: "Focus on building and developing your team capabilities",
+        actions: ["Define clear roles", "Implement training programs", "Set performance metrics"]
+      }
+    ],
+    quickWinResources: [
+      {
+        category: "Productivity Tools",
+        resources: [
+          {
+            name: "Project Management System",
+            description: "Centralize task management and team collaboration",
+            timeToImplement: "1-2 weeks"
+          }
+        ]
+      }
+    ],
+    criticalSuccessFactors: ["Clear communication", "Consistent execution", "Regular progress reviews", "Adaptability to market changes"]
+  };
+  
+  setBlueprint(sampleBlueprint);
+  setCurrentStep(3);
+  setIsGenerating(false);
+};
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
